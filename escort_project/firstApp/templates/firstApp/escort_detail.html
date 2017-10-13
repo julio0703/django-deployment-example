@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load thumbnail %}
+
+<h1>{{ escort.name|title }}</h1>
+{% thumbnail escort.image "600x400" crop="center" as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+<hr>
+<h2>Story</h2>
+<p>{{ escort.story }}</p>
+<hr>
+<h2>Interests</h2>
+<p>{{ escort.interest }}</p>
+<hr>
+<h2>Rate</h2>
+<p>${{ escort.rate }} per hour</p>
+<br>
+{% if user.is_authenticated %}
+<a class='btn btn-danger btn-lg' href="{% url 'firstApp:escort_delete' pk=escort.pk %}">Delete Profile</a>
+<a class='btn btn-default btn-lg' href="{% url 'firstApp:escort_edit' pk=escort.pk %}">Edit Profile</a>
+{% else %}
+<input class='btn btn-success btn-lg' type="button" name="name" value="Request">
+{% endif %}
+{% endblock %}

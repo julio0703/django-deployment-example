@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load thumbnail %}
+
+<h1>Escorts</h1>
+{% for escort in escorts %}
+<h2><a href="{% url 'firstApp:escort_detail' pk=escort.pk %}">{{ escort.name|title }}</a></h2>
+{% thumbnail escort.image "300x200" crop="center" as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+<br>
+{% endfor %}
+
+{% endblock %}
