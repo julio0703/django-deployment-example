@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BASE PAGE</title>
+    <!-- Boot Strap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Medium Text Editor -->
+    <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" media="screen" title="no title">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+  </head>
+  <body class='loader'>
+    <nav class='navbar navbar-default techfont custom-navbar'>
+      <div class="container">
+        <ul class='nav navbar-nav'>
+          <li><a href="{% url 'post_list' %}">Posts</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="https://github.com/julio0703">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/julio-lucero-11406a52/">LinkedIn</a></li>
+        </ul>
+        <ul class='nav navbar-nav navbar-right'>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
+          <li><a href="{% url 'post_form' %}">Create</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          <li><a href="#">Welcome: {{ user.username }}</a></li>
+          {% else %}
+          <!-- <li><a class='nav navbar-right' href="{% url 'login' %}"><span class='glyphicon glyphicon-user'></span></a></li> -->
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="blog_posts">
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

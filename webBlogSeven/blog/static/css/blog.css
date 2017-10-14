@@ -1,0 +1,50 @@
+/*rRusso One',sans-serif
+Palatino
+georgia
+consolas
+Russo One*/
+
+.techfont {
+  font-family: 'georgia';
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.postdate{
+  text-align: center;
+}
+
+p {
+  font-family: 'georgia';
+  font-size: 1.5em;
+}
+
+.posttitle{
+  font-family: 'georgia', sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+.posttitlelist{
+  font-family: 'georgia', sans-serif;
+  font-size: 3em;
+}
+
+.postcontent{
+  font-family: 'georgia';
+  font-size: 1.5em;
+}
+
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-comment{
+  position: absolute;
+  right: 0px;
+}
+
+.bigbrand{
+  font-size: 1.5em;
+}
